@@ -47,7 +47,7 @@ We need to add the following to our project, we will cover each of them in detai
 * Add `requirements.txt` file with all the requirements in the project root;
 * Install django-heroku `pip install django-heroku`
 * Install gunicorn`pip install gunicorn==20.1.0`
-* Add `Gunicorn` to `requirements.txt` `pip install gunicorn==20.1.0`
+* Add `Gunicorn` to `requirements.txt` 
 * A `runtime.txt` to specify the correct Python version in the project root;
 * Configure `whitenoise` to serve static files.
 
@@ -331,4 +331,5 @@ Remember heroku does not offer support for media files in the free tier subscrip
 * https://simpleisbetterthancomplex.com/tutorial/2016/08/09/how-to-deploy-django-applications-on-heroku.html
 * https://simpleisbetterthancomplex.com/2015/11/26/package-of-the-week-python-decouple.html
 
-
+pat<br>
+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
