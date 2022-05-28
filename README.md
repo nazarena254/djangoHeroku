@@ -32,6 +32,7 @@ Its available on [github](https://github.com/newtonkiragu/mtribune-hosting) so y
 * `python3 -m pip install django` to install django 
 * in virtual `django-admin startproject <projectname> .` to create project
 * in virtual `django-admin startapp <appname>` to create app
+* in virtual `python3.9 manage.py runserver` to run server 
 * in virtual `python manage.py createsuperuser` to create Admin
 
 ## Assumptions
