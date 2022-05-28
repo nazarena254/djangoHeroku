@@ -23,6 +23,17 @@ In this tutorial I will deploy an existing project, [moringa-tribune-hosting](ht
 It's an very simple open-source Django project, that shows news posted.
 Its available on [github](https://github.com/newtonkiragu/mtribune-hosting) so you can actually clone the repository and follow along or try it on your own existing django project.
 
+## Startup
+* create folder, cd into it
+* create, activate virtual env & install pip
+    - Run `python3.9 -m venv --without-pip virtual` to install virtual env.<br>
+    - Run `source virtual/bin/activate` to activate and `.../deactivate` to deactivate virtual env.<br>
+    - Run `curl https://bootstrap.pypa.io/get-pip.py | python` to install pip in virtual env.<br>
+* `python3 -m pip install django` to install django 
+* in virtual `django-admin startproject <projectname> .` to create project
+* in virtual `django-admin startapp <appname>` to create app
+* in virtual `python manage.py createsuperuser` to create Admin
+
 ## Assumptions
 * Your familiar with the basics of django e.g concept of apps, settings, urls, basics of databases 
 * You have django application that you want to deploy to heroku
@@ -33,7 +44,9 @@ We need to add the following to our project, we will cover each of them in detai
 
 * Add a `Procfile` in the project root;
 * Add `requirements.txt` file with all the requirements in the project root;
-* Add `Gunicorn` to `requirements.txt`;
+* Install django-heroku `pip install django-heroku`
+* Install gunicorn`pip install gunicorn==20.1.0`
+* Add `Gunicorn` to `requirements.txt` `pip install gunicorn==20.1.0`
 * A `runtime.txt` to specify the correct Python version in the project root;
 * Configure `whitenoise` to serve static files.
 
@@ -113,6 +126,7 @@ python-decouple==3.1
 pytz==2018.5
 whitenoise==4.0
 ```
+* Remove pkg-resources from the requirements.txt file as it might lead to some errors.<br>
 If you are following along with the mtribune app you should use the provided `requirements.txt` as you need to install more python packages, for any app just make sure you have the above packages as a plus.
 
 ## Optional but very helpfull settings
