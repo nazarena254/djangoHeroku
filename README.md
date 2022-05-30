@@ -34,6 +34,18 @@ Its available on [github](https://github.com/newtonkiragu/mtribune-hosting) so y
 * in virtual `django-admin startapp <appname>` to create app
 * in virtual `python3.9 manage.py runserver` to run server 
 * in virtual `python manage.py createsuperuser` to create Admin
+  #### Db & Migrations
+ 1. Db
+     - After installing psycopg2
+     - run `psql`
+     - `CREATE BATABASE <dbname>;`
+     - `\c <dbname>` To connect to db.
+     - `\password` To set your db password
+ 2. Migrations
+     - `python3.9 manage.py check` To check models
+     - `python3.9 manage.py makemigrations <app>` To make migrations
+     - `python3.9 manage.py sqlmigrate <app> 0001` To view migrations 
+     - `python3.9 manage.py migrate` To run migrations
 
 ## Assumptions
 * Your familiar with the basics of django e.g concept of apps, settings, urls, basics of databases 
