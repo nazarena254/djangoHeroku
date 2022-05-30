@@ -29,6 +29,7 @@ Its available on [github](https://github.com/newtonkiragu/mtribune-hosting) so y
     - Run `python3.9 -m venv --without-pip virtual` to install virtual env.<br>
     - Run `source virtual/bin/activate` to activate and `.../deactivate` to deactivate virtual env.<br>
     - Run `curl https://bootstrap.pypa.io/get-pip.py | python` to install pip in virtual env.<br>
+    - Run `python3 -m pip install --upgrade pip`to upgrade pip
 * `python3 -m pip install django` to install django 
 * in virtual `django-admin startproject <projectname> .` to create project
 * in virtual `django-admin startapp <appname>` to create app
