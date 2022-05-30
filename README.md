@@ -57,7 +57,10 @@ Its available on [github](https://github.com/newtonkiragu/mtribune-hosting) so y
 We need to add the following to our project, we will cover each of them in detail in the below section
 
 * Add a `Procfile` in the project root;
-* Add `requirements.txt` file with all the requirements in the project root;
+* Create `requirements.txt` file ;
+* `pip freeze > requirements.txt` to add all your installed dependencies in requirements.txt file.
+   ##### ONLY If you have cloned/copied dependencies requirements.txt file
+   - `pip install -r requirents.txt` To install dependencies written in requirements.txt file
 * Install django-heroku `pip install django-heroku`
 * Install gunicorn`pip install gunicorn==20.1.0`
 * Add `Gunicorn` to `requirements.txt` 
