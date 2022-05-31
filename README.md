@@ -312,19 +312,16 @@ To https://git.heroku.com/mtr1bune.git
 
  ```
 
- ### Run migrations
+ ## Run migrations
  ```bash
  heroku run python manage.py migrate
 ```
 
 If you instead wish to push your postgres database data to heroku then run
-```bash
-heroku pg:push <The name of the db in the local psql> DATABASE_URL --app <heroku-app>
-```
-and in our case:
-```bash
-heroku pg:push tribune DATABASE_URL --app mtr1bune
-```
+`heroku pg:psql` -Allows you to see the psql DATABASE_URL
+`heroku pg:reset` -If the psql DATABASE_URL is empty run this command
+`heroku pg:push <The name of the db in the local psql> <DATABASE_URL> --app <heroku-appname>`
+
 ## configure Heroku Django admin
 ##### Done ONLY when heroku django admin brings Password Error!
 `heroku run python manage.py createsuperuser` to create Heroku django admin
@@ -332,7 +329,7 @@ heroku pg:push tribune DATABASE_URL --app mtr1bune
 Then `git push heroku master` & `heroku run python manage.py migrate` 
  
 
-# Comment
+## Comment
 This process was a lot and you can easily mess up as I did, I suggest analyzing the part where you went wrong and going back to read on what you are supposed to do. I also highly recommend going through official documentations about deploying python projects to heroku as you will get a lot information that can help you debug effectively. I will provide some links in the resources section.
 
 Remember heroku does not offer support for media files in the free tier subscription so find some where else to store those e.g Amazon s3.
