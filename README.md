@@ -24,7 +24,7 @@ It's an very simple open-source Django project, that shows news posted.
 Its available on [github](https://github.com/newtonkiragu/mtribune-hosting) so you can actually clone the repository and follow along or try it on your own existing django project.
 
 ## Startup
-* create folder, cd into it
+* create a folder, cd into it
 * create, activate virtual env & install pip
     - Run `python3.9 -m venv --without-pip virtual` to install virtual env.<br>
     - Run `source virtual/bin/activate` to activate and `.../deactivate` to deactivate virtual env.<br>
@@ -321,6 +321,7 @@ If you instead wish to push your postgres database data to heroku then run
 `heroku pg:psql` -Allows you to see the psql DATABASE_URL
 `heroku pg:reset` -If the psql DATABASE_URL is empty run this command
 `heroku pg:push <The name of the db in the local psql> <DATABASE_URL> --app <heroku-appname>`
+This will go with django admin
 
 ## configure Heroku Django admin
 ##### Done ONLY when heroku django admin brings Password Error!
