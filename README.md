@@ -175,8 +175,13 @@ DB_USER='user'
 DB_PASSWORD='password'
 DB_HOST='127.0.0.1'
 MODE='dev' #set to 'prod' in production
-ALLOWED_HOSTS='.localhost', '.herokuapp.com', '.127.0.0.1'
+ALLOWED_HOSTS='<herokuAppName>.herokuapp.com'  ###### OR ALLOWED_HOSTS='*' If you are not hosting
 DISABLE_COLLECTSTATIC=1
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = config('youremailaddress@gmail.com')
+EMAIL_HOST_PASSWORD = config('youremailpassword')
 ```
 
 We then edit `settings.py` to enable decouple to use the `.env` configurations.
