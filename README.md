@@ -126,10 +126,18 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 django_heroku.settings(locals())
 ```
 ## Installed Apps
-Your application
-Bootstrap `pip install python-bootstrap4`
-crispy forms `pip install django-crispy-forms`
-Add your installed apps on the installed app list in seettings.py file
+* Your application
+* Bootstrap `pip install python-bootstrap4`
+* crispy forms `pip install django-crispy-forms`
+* Add your installed apps on the installed app list in seettings.py file
+* Cloudinary `pip install cloudinary`
+* ###### Claudinary settings
+     cloudinary.config( 
+            cloud_name = "sample", 
+            api_key = "874837483274837", 
+            api_secret = "a676b67565c6767a6767d6767f676fe1",
+            secure = true
+           )
 
 ```python
 INSTALLED_APPS = [
@@ -137,18 +145,20 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.messages',
+    'django.contrib.* messages',
     'django.contrib.staticfiles',
     'insta',
     'bootstrap4',
     'crispy_forms',
+    'cloudinary',
 ]
 ```
 
 
 
 ## Requirements.txt
-If your under a virtual environment run the command below to generate the requirements.txt file which heroku will use to install python package dependencies 
+
+ 'cloudinary',If your under a virtual environment run the command below to generate the requirements.txt file which heroku will use to install python package dependencies 
 
 `pip freeze > requirements.txt`
 Make sure you have the following packages if not install the using pip then run the command above again
