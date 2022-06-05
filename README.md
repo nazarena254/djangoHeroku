@@ -125,6 +125,28 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
 ```
+## Installed Apps
+Your application
+Bootstrap `pip install python-bootstrap4`
+crispy forms `pip install django-crispy-forms`
+Add your installed apps on the installed app list in seettings.py file
+
+```python
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'insta',
+    'bootstrap4',
+    'crispy_forms',
+]
+```
+
+
+
 ## Requirements.txt
 If your under a virtual environment run the command below to generate the requirements.txt file which heroku will use to install python package dependencies 
 
@@ -209,7 +231,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 if config('MODE')=="dev":
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',  # OR 'ENGINE': 'django.db.backends.sqlite3', For sqlite DB
             'NAME': config('DB_NAME'),
             'USER': config('DB_USER'),
             'PASSWORD': config('DB_PASSWORD'),
