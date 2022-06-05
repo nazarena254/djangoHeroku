@@ -133,15 +133,16 @@ Make sure you have the following packages if not install the using pip then run 
 ```
 config==0.3.9
 dj-database-url==0.5.0
-Django==1.11
-django-bootstrap3==10.0.1
+Django==4.0.5       
+django-bootstrap4==22.1
+django-crispy-forms==1.14.0
 django-heroku==0.3.1
 gunicorn==19.9.0
-Pillow==5.2.0
-psycopg2==2.7.5
-python-decouple==3.1
+Pillow==9.1.1
+psycopg2==2.9.3
+python-decouple==3.6
 pytz==2018.5
-whitenoise==4.0
+whitenoise==6.1.0
 ```
 * Remove pkg-resources from the requirements.txt file as it might lead to some errors.<br>
 If you are following along with the mtribune app you should use the provided `requirements.txt` as you need to install more python packages, for any app just make sure you have the above packages as a plus.
