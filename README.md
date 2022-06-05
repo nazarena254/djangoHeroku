@@ -131,13 +131,13 @@ django_heroku.settings(locals())
 * crispy forms `pip install django-crispy-forms`
 * Add your installed apps on the installed app list in seettings.py file
 * Cloudinary `pip install cloudinary`
-* ###### Claudinary settings
-     cloudinary.config( 
-            cloud_name = "sample", 
-            api_key = "874837483274837", 
-            api_secret = "a676b67565c6767a6767d6767f676fe1",
-            secure = true
-           )
+* ###### Claudinary configurations 
+    CLOUDINARY_STORAGE = {
+                    'CLOUD_NAME': config('CLOUDINARY_NAME'),
+                    'API_KEY': config('CLOUDINARY_API_KEY'),
+                    'API_SECRET': config('CLOUDINARY_SECRET'), 
+                    }
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 ```python
 INSTALLED_APPS = [
@@ -155,9 +155,7 @@ INSTALLED_APPS = [
 ```
 
 
-
 ## Requirements.txt
-
  'cloudinary',If your under a virtual environment run the command below to generate the requirements.txt file which heroku will use to install python package dependencies 
 
 `pip freeze > requirements.txt`
@@ -166,7 +164,7 @@ Make sure you have the following packages if not install the using pip then run 
 config==0.3.9
 dj-database-url==0.5.0
 Django==4.0.5       
-django-bootstrap4==22.1
+django-bootstrap4==22.
 django-crispy-forms==1.14.0
 django-heroku==0.3.1
 gunicorn==19.9.0
@@ -203,10 +201,16 @@ below is an example of configurations you can add to the `.env` file.
 #just an example, dont share your .env settings
 SECRET_KEY='342s(s(!hsjd998sde8$=o4$3m!(o+kce2^97kp6#ujhi'
 DEBUG=True #set to false in production
+# POSTGRESQL DB
 DB_NAME='tribune'
 DB_USER='user'
 DB_PASSWORD='password'
 DB_HOST='127.0.0.1'
+#SQLITE DB
+CLOUDINARY_NAME='abcdef'
+API_KEY='468hgtcbjk'
+API_SECRET='fhjm8765dvhjkkllgg58sdf'
+
 MODE='dev' #set to 'prod' in production
 ALLOWED_HOSTS='<herokuAppName>.herokuapp.com'  ###### OR ALLOWED_HOSTS='*' If you are not hosting
 DISABLE_COLLECTSTATIC=1
@@ -263,6 +267,13 @@ DATABASES['default'].update(db_from_env)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 ```
+##### DB settings remains the same if you are using sqlite
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 # Lets deploy now
 First make sure you are in the root directory of the repository you want to deploy
