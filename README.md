@@ -271,12 +271,15 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 ALLOWED_HOSTS = 'herokuAppName.herokuapp.com'
 ```
 #### DB settings remains the same if you are using sqlite
+```
+python
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / '<sqlitedbname>',
     }
 }
+```
 * Install sqlite3 `sudo apt install sqlite3`
 * Install SQLitebrowser `sudo apt install sqlitebrowser`
 * Uninstall SQLitebrowser `sudo apt --purge remove sqlitebrowser` 
@@ -390,10 +393,10 @@ To https://git.heroku.com/mtr1bune.git
  heroku run python manage.py migrate
 ```
 If you instead wish to push your postgres database data to heroku then run
-`heroku pg:psql` -Allows you to see the psql DATABASE_URL <br>
-`heroku pg:reset` -If the psql DATABASE_URL is empty run this command <br>
-`heroku pg:push <The name of the db in the local psql> <DATABASE_URL> --app <heroku-appname>` <br>
-This will go with django admin <br>
+- `heroku pg:psql` -Allows you to see the psql DATABASE_URL 
+- `heroku pg:reset` -If the psql DATABASE_URL is empty run this command 
+- `heroku pg:push <The name of the db in the local psql> <DATABASE_URL> --app <heroku-appname>`
+- This will go with django admin 
 
 ## configure Heroku Django admin
 ##### Done ONLY when heroku django admin brings Password Error!
@@ -407,7 +410,7 @@ This process was a lot and you can easily mess up as I did, I suggest analyzing 
 
 Remember heroku does not offer support for media files in the free tier subscription so find some where else to store those e.g Cloudinary Amazon s3.
 
-# Resources
+#esources
 ## heroku Docs
 * https://devcenter.heroku.com/articles/heroku-postgresql
 * https://devcenter.heroku.com/articles/django-assets
