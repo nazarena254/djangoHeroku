@@ -126,18 +126,17 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 django_heroku.settings(locals())
 ```
 ## Installed Apps
-* Your application
+* Add your installed apps on the installed app list in seettings.py file
 * Bootstrap `pip install python-bootstrap4`
 * crispy forms `pip install django-crispy-forms`
-* Add your installed apps on the installed app list in seettings.py file
 * Cloudinary `pip install cloudinary`
-* ###### Claudinary configurations 
-    CLOUDINARY_STORAGE = {
-                    'CLOUD_NAME': config('CLOUDINARY_NAME'),
-                    'API_KEY': config('CLOUDINARY_API_KEY'),
-                    'API_SECRET': config('CLOUDINARY_SECRET'), 
-                    }
-    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+ ###### Claudinary configurations 
+   cloudinary.config( 
+       cloud_name = config('CLOUDINARY_NAME'), 
+       api_key = config('CLOUDINARY_API_KEY'), 
+       api_secret = config('CLOUDINARY_API_SECRET') 
+     )   
+   DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 ```python
 INSTALLED_APPS = [
@@ -162,11 +161,13 @@ INSTALLED_APPS = [
 Make sure you have the following packages if not install the using pip then run the command above again
 ```
 config==0.3.9
+cloudinary==1.29.0
 dj-database-url==0.5.0
 Django==4.0.5       
 django-bootstrap4==22.
 django-crispy-forms==1.14.0
 django-heroku==0.3.1
+django-registration==3.1.2
 gunicorn==19.9.0
 Pillow==9.1.1
 psycopg2==2.9.3
@@ -208,8 +209,8 @@ DB_PASSWORD='password'
 DB_HOST='127.0.0.1'
 #SQLITE DB
 CLOUDINARY_NAME='abcdef'
-API_KEY='468hgtcbjk'
-API_SECRET='fhjm8765dvhjkkllgg58sdf'
+CLOUDINARY_API_KEY='468hgtcbjk'
+CLOUDINARY_API_SECRET='fhjm8765dvhjkkllgg58sdf'
 
 MODE='dev' #set to 'prod' in production
 ALLOWED_HOSTS='<herokuAppName>.herokuapp.com'  ###### OR ALLOWED_HOSTS='*' If you are not hosting
@@ -228,7 +229,7 @@ import os
 import django_heroku
 import dj_database_url
 from decouple import config,Csv
-
+import cloudinary
 
 # Email configurations remember to install python-decouple
 # We use the config function to connect to the environment variables
@@ -265,16 +266,30 @@ else:
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv()) 
+    OR
+ALLOWED_HOSTS = 'herokuAppName.herokuapp.com'
 ```
-##### DB settings remains the same if you are using sqlite
+#### DB settings remains the same if you are using sqlite
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / '<sqlitedbname>',
     }
 }
+* Install sqlite3 `sudo apt install sqlite3`
+* Install SQLitebrowser `sudo apt install sqlitebrowser`
+* Uninstall SQLitebrowser `sudo apt --purge remove sqlitebrowser` 
+##### CONNECT to slite3 DATABASE, type this in terminal: 
+* `sqlite3`
+* sqlite>`.database` to view db available    
+* sqlite>`.open <dbname>` to open the db 
+* sqlite>`.tables` to view all the available tables OR sqlite>`.fullschema` 
+* sqlite>`.schema <tablename>` to view specified table
 
+    
+    
+    
 # Lets deploy now
 First make sure you are in the root directory of the repository you want to deploy
 
@@ -302,7 +317,7 @@ Remember to first set `DEBUG` to false and confirm that you have added all the c
 
 ![Imgur](https://i.imgur.com/D0s6BkV.png?1)
 
-### pushing to heroku
+## pushing to heroku
 
 confirm that your application is running as expected before pushing, runtime errors will cause deployment to fail so make sure you have no bugs, you have all the following `Procfile`, `requirements.txt` with all required packages and  `runtime.txt` .
 
@@ -374,24 +389,23 @@ To https://git.heroku.com/mtr1bune.git
  ```bash
  heroku run python manage.py migrate
 ```
-
 If you instead wish to push your postgres database data to heroku then run
-`heroku pg:psql` -Allows you to see the psql DATABASE_URL
-`heroku pg:reset` -If the psql DATABASE_URL is empty run this command
-`heroku pg:push <The name of the db in the local psql> <DATABASE_URL> --app <heroku-appname>`
-This will go with django admin
+`heroku pg:psql` -Allows you to see the psql DATABASE_URL <br>
+`heroku pg:reset` -If the psql DATABASE_URL is empty run this command <br>
+`heroku pg:push <The name of the db in the local psql> <DATABASE_URL> --app <heroku-appname>` <br>
+This will go with django admin <br>
 
 ## configure Heroku Django admin
 ##### Done ONLY when heroku django admin brings Password Error!
-`heroku run python manage.py createsuperuser` to create Heroku django admin
- - This prompts one to enter username, email, password and confirm password<br>
+`heroku run python manage.py createsuperuser` to create Heroku django admin <br>
+ - This prompts one to enter username, email, password and confirm password <br>
 Then `git push heroku master` & `heroku run python manage.py migrate` 
  
 
 ## Comment
 This process was a lot and you can easily mess up as I did, I suggest analyzing the part where you went wrong and going back to read on what you are supposed to do. I also highly recommend going through official documentations about deploying python projects to heroku as you will get a lot information that can help you debug effectively. I will provide some links in the resources section.
 
-Remember heroku does not offer support for media files in the free tier subscription so find some where else to store those e.g Amazon s3.
+Remember heroku does not offer support for media files in the free tier subscription so find some where else to store those e.g Cloudinary Amazon s3.
 
 # Resources
 ## heroku Docs
@@ -408,5 +422,3 @@ Remember heroku does not offer support for media files in the free tier subscrip
 * https://simpleisbetterthancomplex.com/tutorial/2016/08/09/how-to-deploy-django-applications-on-heroku.html
 * https://simpleisbetterthancomplex.com/2015/11/26/package-of-the-week-python-decouple.html
 
-pat<br>
-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
