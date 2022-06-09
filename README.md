@@ -301,7 +301,7 @@ First make sure you are in the root directory of the repository you want to depl
 pip freeze > requirements.txt
 ```
 ```bash
-`heroku login`
+heroku login
 ```
 Next create the heroku app
 ```bash
@@ -315,24 +315,26 @@ Next we log in to [Heroku dashboard](https://dashboard.heroku.com) to access our
 
 ![Imgur](https://i.imgur.com/dbDQxlJ.png)
 
-To add all your configurations in `.env` file directly to heroku
-Remember to first set `DEBUG` to false in .env file and confirm that you have added all the confuguration variables needed.
+To add all your configurations in `.env` file directly to heroku<br>
+Remember to first set `DEBUG` to false in .env file and confirm that you have added all the confuguration variables needed.<br>
 ```bash
 heroku config:set $(cat .env | sed '/^$/d; /#[[:print:]]*$/d')
 ```
  
 ![Imgur](https://i.imgur.com/D0s6BkV.png?1)
-Click on the Settings menu and then on the button Reveal Config Vars:
-Next add all the environment vaiables, if you dint add your .env variables to heroku. By default you should have `DATABASE_URI` configuration created after installing postgres to heroku.
+
+Click on the Settings menu and then on the button Reveal Config Vars <br>
+Next add all the environment vaiables, if you dint add your .env variables to heroku.<br> 
+By default you should have `DATABASE_URI` configuration created after installing postgres to heroku.
 
 ## Heroku Conf Variables
 * Set debug=True
 * Remove Single/Doube Quotes in Heroku Config Variables
 
-## pushing to heroku
+## Pushing to heroku
 confirm that your application is running as expected before pushing, runtime errors will cause deployment to fail so make sure you have no bugs, you have all the following `Procfile`, `requirements.txt` with all required packages and  `runtime.txt` .
 ```bash
-git add . && git commit - "message"
+git add . && git commit -m "message"
 ```
 ```bash
 git push heroku master
