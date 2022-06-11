@@ -87,6 +87,7 @@ List of [Heroku Python Runtimes](https://devcenter.heroku.com/articles/python-ru
 ## .gitignore
 gitignore file should have the following:
 ```bash
+__pycache__/
 virtual/
 .vscode/
 .env
