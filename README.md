@@ -84,6 +84,18 @@ python-3.9.2
 ```
 List of [Heroku Python Runtimes](https://devcenter.heroku.com/articles/python-runtimes).
 
+## .gitignore
+gitignore file should have the following:
+```bash
+virtual/
+.vscode/
+.env
+*.pyc
+
+*.sh   #for start.sh file, used in flask
+```
+
+
 ## Whitenoise: Django Static Files settings
 Lets first configure static related parameter in `settings.py`
 ```python 
