@@ -37,6 +37,7 @@ Its available on [github](https://github.com/newtonkiragu/mtribune-hosting) so y
 * in virtual `python manage.py createsuperuser` to create Admin
 
 ## Install all dependiencies at once
+* cloudinary
 * django-bootstrap4
 * django-crispy-forms 
 * django-heroku 
@@ -48,7 +49,7 @@ Its available on [github](https://github.com/newtonkiragu/mtribune-hosting) so y
 * djangorestframework
 
 ```bash
-pip install django-bootstrap4 django-crispy-forms django-heroku gunicorn Pillow python-decouple typing-extensions djangorestframework
+pip install django-bootstrap4 cloudinary django-crispy-forms django-heroku gunicorn Pillow python-decouple typing-extensions djangorestframework
 ```
 ###### This will come with whitenoise, pyscopg2 and dj-database-url dependencies
 
@@ -173,7 +174,11 @@ django_heroku.settings(locals())
    # Usually this STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
  
  ```
+ 
+ settings.py file
 ```python
+import cloudinary
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -187,7 +192,14 @@ INSTALLED_APPS = [
     'cloudinary',
 ]
 ```
+models.py
+```bash
+import cloudinary
+from cloudinary.models import CloudinaryField
 
+class Classname(models.Model):
+    prof_pic=CloudinaryField('image')
+```
 
 ## Requirements.txt
  'cloudinary',If your under a virtual environment run the command below to generate the requirements.txt file which heroku will use to install python package dependencies 
