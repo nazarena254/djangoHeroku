@@ -161,7 +161,8 @@ django_heroku.settings(locals())
 * Bootstrap `pip install python-bootstrap4`
 * crispy forms `pip install django-crispy-forms`
 * Cloudinary `pip install cloudinary`
- ###### Claudinary configurations 
+
+ ### Claudinary configurations 
  ```bash
    cloudinary.config( 
        cloud_name = config('CLOUDINARY_NAME'), 
