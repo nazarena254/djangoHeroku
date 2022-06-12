@@ -163,6 +163,9 @@ django_heroku.settings(locals())
 * Cloudinary `pip install cloudinary`
 
  ### Claudinary configurations 
+ settings.py file
+ import cloudinary 
+ 
  ```bash
    cloudinary.config( 
        cloud_name = config('CLOUDINARY_NAME'), 
@@ -174,12 +177,6 @@ django_heroku.settings(locals())
    # You can uncomment this cloudinary_storage if you have default file storage in your local machine
    # Usually this STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
  
- ```
- 
- settings.py file
-```python
-import cloudinary
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
