@@ -4,7 +4,7 @@ deploy django web app to heroku take aways/instructions.
 How to Deploy Django Applications on Heroku
 ===========================================
 
-# Install heroku CLI
+### Install heroku CLI
 [Sign up](https://signup.heroku.com/) to Heroku.
 
 Then install the [Heroku Toolbelt](https://toolbelt.heroku.com/). It is a command line tool to manage your Heroku apps
@@ -35,7 +35,24 @@ Its available on [github](https://github.com/newtonkiragu/mtribune-hosting) so y
 * in virtual `django-admin startapp <appname>` to create app
 * in virtual `python3.9 manage.py runserver` to run server 
 * in virtual `python manage.py createsuperuser` to create Admin
-  #### Db & Migrations
+
+## Install all dependiencies at once
+* django-bootstrap4
+* django-crispy-forms 
+* django-heroku 
+* gunicorn 
+* Pillow 
+* pyscopg2 
+* python-decouple 
+* typing-extensions 
+* djangorestframework
+
+```bash
+pip install django-bootstrap4 django-crispy-forms django-heroku gunicorn Pillow pyscopg2 python-decouple typing-extensions djangorestframework
+```
+This will come with whitenoise and dj-database-url dependencies
+
+## Db & Migrations
  1. Db
      - After installing psycopg2
      - run `psql`
