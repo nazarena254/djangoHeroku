@@ -48,9 +48,9 @@ Its available on [github](https://github.com/newtonkiragu/mtribune-hosting) so y
 * djangorestframework
 
 ```bash
-pip install django-bootstrap4 django-crispy-forms django-heroku gunicorn Pillow pyscopg2 python-decouple typing-extensions djangorestframework
+pip install django-bootstrap4 django-crispy-forms django-heroku gunicorn Pillow python-decouple typing-extensions djangorestframework
 ```
-This will come with whitenoise and dj-database-url dependencies
+###### This will come with whitenoise, pyscopg2 and dj-database-url dependencies
 
 ## Db & Migrations
  1. Db
