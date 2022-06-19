@@ -188,6 +188,8 @@ INSTALLED_APPS = [
     'bootstrap4',
     'crispy_forms',
     'cloudinary',
+    'rest_framework',
+    'rest_framework.authtoken',
 ]
 ```
 models.py
@@ -307,6 +309,13 @@ DATABASES['default'].update(db_from_env)
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv()) 
     OR
 ALLOWED_HOSTS = 'herokuAppName.herokuapp.com'
+
+#for api token
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
 ```
 #### DB settings remains the same if you are using sqlite
 ```
