@@ -26,7 +26,7 @@ Its available on [github](https://github.com/newtonkiragu/mtribune-hosting) so y
 ## Startup
 * create a folder, cd into it
 * create, activate virtual env & install pip
-    - Run `python3.9 -m venv --without-pip virtual` OR `sudo apt install python3-venv` to install virtual env.<br>
+    - Run `python3.9 -m venv --without-pip virtual` <br>
     - Run `source virtual/bin/activate` to activate and `.../deactivate` to deactivate virtual env.<br>
     - Run `curl https://bootstrap.pypa.io/get-pip.py | python` to install pip in virtual env.<br>
     - Run `python3 -m pip install --upgrade pip`to upgrade pip
@@ -56,7 +56,7 @@ pip install django-bootstrap4 cloudinary django-crispy-forms django-heroku gunic
 ## Db & Migrations
  1. Db
      - After installing psycopg2
-     - run `psql`
+     - run `psql` in terminal
      - `CREATE BATABASE <dbname>;`
      - `\c <dbname>` To connect to db.
      - `\password` To set your db password
