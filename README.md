@@ -74,7 +74,7 @@ pip install django-bootstrap4 cloudinary django-crispy-forms django-heroku gunic
 
 We need to add the following to our project, we will cover each of them in detail in the below section
 
-* Add a `Procfile` in the project root;
+* Create a `Procfile` in the project root;
 * Create `requirements.txt` file ;
 * `pip freeze > requirements.txt` to add all your installed dependencies in requirements.txt file.
    ##### ONLY If you have cloned/copied dependencies requirements.txt file
