@@ -62,7 +62,7 @@ pip install django-bootstrap4 cloudinary django-crispy-forms django-heroku gunic
      - `\password` To set your db password
  2. Migrations
      - `python3.9 manage.py check` To check models
-     - `python3.9 manage.py makemigrations <app>` To make migrations
+     - `python3.9 manage.py makemigrations <app>`  OR  `python3.9 manage.py makemigrations`  To make migrations
      - `python3.9 manage.py sqlmigrate <app> 0001` To view migrations 
      - `python3.9 manage.py migrate` To run migrations
 
