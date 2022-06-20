@@ -1,8 +1,5 @@
-# djangoHeroku
-Deploy django web app to heroku take aways/instructions.
-
-How to Deploy Django Applications on Heroku
-===========================================
+How to Deploy Django Applications on Heroku Take-Aways.
+=======================================================
 
 ### Install heroku CLI
 [Sign up](https://signup.heroku.com/) to Heroku.
