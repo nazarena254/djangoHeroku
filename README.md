@@ -1,5 +1,5 @@
 # djangoHeroku
-deploy django web app to heroku take aways/instructions.
+Deploy django web app to heroku take aways/instructions.
 
 How to Deploy Django Applications on Heroku
 ===========================================
