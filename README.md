@@ -40,7 +40,7 @@ Its available on [github](https://github.com/newtonkiragu/mtribune-hosting) so y
 * django-heroku 
 * gunicorn 
 * Pillow 
-* pyscopg2 
+* psycopg2 
 * python-decouple 
 * typing-extensions 
 * djangorestframework
