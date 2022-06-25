@@ -24,7 +24,7 @@ Its available on [github](https://github.com/newtonkiragu/mtribune-hosting) so y
 * create a folder, cd into it
 * create, activate virtual env & install pip
     - Run `python3.9 -m venv --without-pip virtual` <br>
-    - Run `source virtual/bin/activate` to activate and `.../deactivate` to deactivate virtual env.<br>
+    - Run `source virtual/bin/activate` to activate and `deactivate` to deactivate virtual env.<br>
     - Run `curl https://bootstrap.pypa.io/get-pip.py | python` to install pip in virtual env.<br>
     - Run `python3 -m pip install --upgrade pip`to upgrade pip
 * `python3 -m pip install django` to install django 
@@ -275,6 +275,7 @@ EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_PORT = config('EMAIL_PORT')
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+# ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
@@ -288,7 +289,7 @@ if config('MODE')=="dev":
             'USER': config('DB_USER'),
             'PASSWORD': config('DB_PASSWORD'),
             'HOST': config('DB_HOST'),
-            'PORT': '',
+            'PORT': '',  OR 'PORT':5432
         }
         
     }
@@ -313,6 +314,9 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     )
 }
+
+# Configure Django App for Heroku.
+django_heroku.settings(locals())
 ```
 #### DB settings remains the same if you are using sqlite
 ```
