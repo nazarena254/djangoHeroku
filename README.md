@@ -280,6 +280,7 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
+DISABLE_COLLECTSTATIC = config('DISABLE_COLLECTSTATIC')
  # development
 if config('MODE')=="dev":
     DATABASES = {
