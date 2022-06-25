@@ -281,6 +281,7 @@ MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 DISABLE_COLLECTSTATIC = config('DISABLE_COLLECTSTATIC')
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())    OR  ALLOWED_HOSTS = 'herokuAppName.herokuapp.com'
  # development
 if config('MODE')=="dev":
     DATABASES = {
@@ -304,10 +305,6 @@ else:
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
-
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv()) 
-    OR
-ALLOWED_HOSTS = 'herokuAppName.herokuapp.com'
 
 #for api token
 REST_FRAMEWORK = {
