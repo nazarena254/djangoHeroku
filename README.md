@@ -15,11 +15,6 @@ Password (typing will be hidden):
 Authentication successful.
 ```
 
-# Preparing the Application
-In this tutorial I will deploy an existing project, [moringa-tribune-hosting](https://github.com/newtonkiragu/mtribune-hosting).
-It's an very simple open-source Django project, that shows news posted.
-Its available on [github](https://github.com/newtonkiragu/mtribune-hosting) so you can actually clone the repository and follow along or try it on your own existing django project.
-
 ## Startup
 * create a folder, cd into it
 * create, activate virtual env & install pip
