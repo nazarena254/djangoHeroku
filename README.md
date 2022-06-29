@@ -18,7 +18,7 @@ Authentication successful.
 ## Startup
 * create a folder, cd into it
 * create, activate virtual env & install pip
-    - Run `python3.9 -m venv --without-pip virtual` <br>
+    - Run `python3.9 -m venv --without-pip virtual`  OR `python -m venv venv`  <br>
     - Run `source virtual/bin/activate` to activate and `deactivate` to deactivate virtual env.<br>
     - Run `curl https://bootstrap.pypa.io/get-pip.py | python` to install pip in virtual env.<br>
     - Run `python3 -m pip install --upgrade pip`to upgrade pip
