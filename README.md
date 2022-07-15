@@ -2,7 +2,7 @@ Deploy Django App on Heroku Take-Aways.
 =======================================================
 
 ## Install heroku CLI
-[Sign up](https://signup.heroku.com/) to Heroku.
+[Sign up](https://signup.heroku.com/) to Heroku in order to create an account.
 
 Then install the [Heroku Toolbelt](https://toolbelt.heroku.com/). It is a command line tool to manage your Heroku apps
 
