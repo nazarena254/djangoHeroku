@@ -54,9 +54,10 @@ pip install django-bootstrap4 cloudinary django-crispy-forms django-heroku gunic
      - `\password` To set your db password
  2. Migrations
      - `python3.9 manage.py check` To check models
-     - `python3.9 manage.py makemigrations <app>`  OR  `python3.9 manage.py makemigrations`  To make migrations
-     - `python3.9 manage.py sqlmigrate <app> 0001` To view migrations 
-     - `python3.9 manage.py migrate` To run migrations
+     - `python3.9 manage.py makemigrations <app>` to make migrations- This tells Django that we've created/altered Models.
+     - `python3.9 manage.py migrate` - With the INSTALLED_APPS in settings.py database tables will be created accordingly.
+     - `python3.9 manage.py sqlmigrate <app> 0001` To view migrations **IF USING SQLITE BD 
+    
 
 ## Assumptions
 * Your familiar with the basics of django e.g concept of apps, settings, urls, basics of databases 
