@@ -109,22 +109,14 @@ virtual/
 
 
 ## Whitenoise: Django Static Files settings
+WhiteNoise allows your web app to serve its own static files, making it a self-contained unit tht can be deployed anywhere without relying on nginx, Amazon S3 or other external service 
+Turns out django does not support serving static files in production. However, WhiteNoise project can integrate into your Django application, and was designed with exactly this purpose in mind.
+
 Lets first configure static related parameter in `settings.py`
 ```python 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
-
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
 ```
-Turns out django does not support serving static files in production. However, WhiteNoise project can integrate into your Django application, and was designed with exactly this purpose in mind.
-
 Lets first install Whitenoise   `pip install whitenoise`
 
 Install `WhiteNoise` into your Django application. This is done in `settings.py’s middleware section` (at the top):
@@ -140,15 +132,20 @@ Add the following setting to `settings.py` in the static files section to enable
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 
+# WhiteNoise allows your web app to serve its own static files, making it a self-contained 
+# unit tht can be deployed anywhere without relying on nginx, Amazon S3 or other external service 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+# Folder to store static files during deployment
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+
+# Folder to store additional static files aside from static folder
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-# configuring the location for media
+# Folder where files uploaded using file or img filed will go. Eg images, pdfs
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -161,12 +158,14 @@ django_heroku.settings(locals())
 * crispy forms `pip install django-crispy-forms`
 * Cloudinary `pip install cloudinary`
 
- ### Claudinary configurations 
+ ### Cloudinary configurations 
  settings.py file
  import cloudinary 
  
  ```bash
-   cloudinary.config( 
+    # Cloudinary is a cloud-based image and video management services. It enables users to 
+    # upload, store, manage, manipulate, and deliver images and video for websites and apps.
+    cloudinary.config( 
        cloud_name = config('CLOUDINARY_NAME'), 
        api_key = config('CLOUDINARY_API_KEY'), 
        api_secret = config('CLOUDINARY_API_SECRET') 
@@ -222,7 +221,6 @@ pytz==2018.5
 whitenoise==6.1.0
 ```
 * Remove pkg-resources from the requirements.txt file as it might lead to some errors.<br>
-If you are following along with the mtribune app you should use the provided `requirements.txt` as you need to install more python packages, for any app just make sure you have the above packages as a plus.
 
 ## Optional but very helpfull settings
 
