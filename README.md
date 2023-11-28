@@ -18,8 +18,8 @@ Authentication successful.
 ## Startup
 * create a folder, cd into it
 * create, activate virtual env & install pip
-    - Run `python3.9 -m venv --without-pip virtual`  OR `python -m venv venv`  <br>
-    - Run `source virtual/bin/activate` OR `source venv/bin/activate` to activate and `deactivate` to deactivate virtual env.<br>
+    - Run `python3.9 -m venv --without-pip virtual`  OR `python -m venv venv` N/B - Use the word python alone on windows without the version. <br>
+    - Run `source virtual/bin/activate` OR `source venv/bin/activate` OR `.\virtual\Scripts\activate` (On windows) to activate and `deactivate` to deactivate virtual env.<br>
     - Run `curl https://bootstrap.pypa.io/get-pip.py | python` to install pip in virtual env.<br>
     - Run `python3 -m pip install --upgrade pip`to upgrade pip
 * `python3 -m pip install django` to install django 
