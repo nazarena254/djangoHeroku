@@ -10,7 +10,7 @@ After installing the Heroku Toolbelt, open a terminal and login to your account:
 ```bash
 $ heroku login
 Enter your Heroku credentials.
-Email: newtonkiragu@herokudeploying.com
+Email: nancyanderson@herokudeploying.com
 Password (typing will be hidden):
 Authentication successful.
 ```
@@ -25,8 +25,10 @@ Authentication successful.
 * `python3 -m pip install django` to install django 
 * in virtual `django-admin startproject <projectname> .` to create project
 * in virtual `python manage.py startapp <appname>` to create app
-* in virtual `python3.9 manage.py runserver` to run server 
-* in virtual `python manage.py createsuperuser` to create Admin
+* in virtual `python manage.py migrate` to create/make migrations
+* in virtual `python3.9 manage.py runserver` to run server and Press Crtl+C to QUIT SERVER.
+* in virtual `python manage.py createsuperuser` to create Admin/Superuser
+* Admin/SuperUser - One who can log into admin page & have permissions to add, edit, delete objects in thru admin page.
 
 ## Install all dependiencies at once
 * cloudinary
